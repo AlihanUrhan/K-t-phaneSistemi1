@@ -31,9 +31,13 @@ namespace KütüphaneSistemi1
 
         private void button3_Click(object sender, EventArgs e)
          {
-            EmanetIslemleri EmanetIslemleri = new EmanetIslemleri();
-            EmanetIslemleri.ShowDialog();
-         }
+            EmanetListesi emanetListesi = new EmanetListesi(); // Emanet listesi nesnesi oluşturuluyor
+            KitapListesi kitapListesi = new KitapListesi(); // Kitap listesi nesnesi oluşturuluyor
+            UyeListesi uyeListesi = new UyeListesi(); // Üye listesi nesnesi oluşturuluyor
+
+            EmanetFormu emanetIslemleri = new EmanetFormu(emanetListesi, kitapListesi, uyeListesi); // Emanet formu nesnesi oluşturuluyor ve parametreler geçiliyor
+            emanetIslemleri.ShowDialog(); // Emanet işlemleri formu gösteriliyor
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {

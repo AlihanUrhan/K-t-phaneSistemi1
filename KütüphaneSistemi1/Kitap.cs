@@ -20,5 +20,10 @@ namespace KütüphaneSistemi1
             KitapIsim = kitapIsim;
             Yazar = yazar;
         }
+
+        public override string ToString()
+        {
+            return $"{KitapIsim} - {Yazar}";
+        }
     }
 }

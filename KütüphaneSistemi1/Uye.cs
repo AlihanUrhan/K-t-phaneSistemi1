@@ -20,5 +20,10 @@ namespace KütüphaneSistemi1
             Ad = ad;
             Soyad = soyad;
         }
+
+        public override string ToString()
+        {
+            return $"{Ad} {Soyad}";
+        }
     }
 }

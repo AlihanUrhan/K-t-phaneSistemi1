@@ -49,12 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmanetIslemleri.cs">
+    <Compile Include="Emanet.cs" />
+    <Compile Include="EmanetFormu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmanetIslemleri.Designer.cs">
-      <DependentUpon>EmanetIslemleri.cs</DependentUpon>
+    <Compile Include="EmanetFormu.Designer.cs">
+      <DependentUpon>EmanetFormu.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmanetListesi.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,8 +93,8 @@
       <DependentUpon>UyeEkle.cs</DependentUpon>
     </Compile>
     <Compile Include="UyeListesi.cs" />
-    <EmbeddedResource Include="EmanetIslemleri.resx">
-      <DependentUpon>EmanetIslemleri.cs</DependentUpon>
+    <EmbeddedResource Include="EmanetFormu.resx">
+      <DependentUpon>EmanetFormu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -39,57 +39,61 @@
             // 
             // btnUyeEkle
             // 
-            this.btnUyeEkle.Location = new System.Drawing.Point(97, 271);
+            this.btnUyeEkle.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnUyeEkle.Location = new System.Drawing.Point(426, 261);
             this.btnUyeEkle.Name = "btnUyeEkle";
-            this.btnUyeEkle.Size = new System.Drawing.Size(75, 23);
+            this.btnUyeEkle.Size = new System.Drawing.Size(97, 36);
             this.btnUyeEkle.TabIndex = 0;
-            this.btnUyeEkle.Text = "Kayıt";
-            this.btnUyeEkle.UseVisualStyleBackColor = true;
+            this.btnUyeEkle.Text = "KAYDET";
+            this.btnUyeEkle.UseVisualStyleBackColor = false;
             this.btnUyeEkle.Click += new System.EventHandler(this.btnUyeEkle_Click);
             // 
             // txtAd
             // 
-            this.txtAd.Location = new System.Drawing.Point(97, 60);
+            this.txtAd.Location = new System.Drawing.Point(60, 261);
             this.txtAd.Name = "txtAd";
             this.txtAd.Size = new System.Drawing.Size(100, 22);
             this.txtAd.TabIndex = 1;
             // 
             // txtSoyad
             // 
-            this.txtSoyad.Location = new System.Drawing.Point(97, 107);
+            this.txtSoyad.Location = new System.Drawing.Point(60, 289);
             this.txtSoyad.Name = "txtSoyad";
             this.txtSoyad.Size = new System.Drawing.Size(100, 22);
             this.txtSoyad.TabIndex = 2;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(278, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(60, 34);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(417, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(463, 195);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // SilButton
             // 
-            this.SilButton.Location = new System.Drawing.Point(562, 270);
+            this.SilButton.BackColor = System.Drawing.Color.Red;
+            this.SilButton.Location = new System.Drawing.Point(426, 352);
             this.SilButton.Name = "SilButton";
-            this.SilButton.Size = new System.Drawing.Size(75, 23);
+            this.SilButton.Size = new System.Drawing.Size(97, 35);
             this.SilButton.TabIndex = 4;
             this.SilButton.Text = "SİL";
-            this.SilButton.UseVisualStyleBackColor = true;
+            this.SilButton.UseVisualStyleBackColor = false;
             this.SilButton.Click += new System.EventHandler(this.SilButton_Click);
             // 
             // DuzenleButton
             // 
-            this.DuzenleButton.Location = new System.Drawing.Point(448, 270);
+            this.DuzenleButton.BackColor = System.Drawing.Color.Yellow;
+            this.DuzenleButton.Location = new System.Drawing.Point(426, 303);
             this.DuzenleButton.Name = "DuzenleButton";
-            this.DuzenleButton.Size = new System.Drawing.Size(75, 23);
+            this.DuzenleButton.Size = new System.Drawing.Size(97, 43);
             this.DuzenleButton.TabIndex = 5;
-            this.DuzenleButton.Text = "Düzenle";
-            this.DuzenleButton.UseVisualStyleBackColor = true;
+            this.DuzenleButton.Text = "ÜYELİK DÜZENLE";
+            this.DuzenleButton.UseVisualStyleBackColor = false;
             this.DuzenleButton.Click += new System.EventHandler(this.DuzenleButton_Click);
             // 
             // UyeEkle

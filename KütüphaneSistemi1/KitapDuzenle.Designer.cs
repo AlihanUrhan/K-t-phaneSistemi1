@@ -38,7 +38,7 @@
             // 
             // kitapIdTextBox
             // 
-            this.kitapIdTextBox.Location = new System.Drawing.Point(47, 71);
+            this.kitapIdTextBox.Location = new System.Drawing.Point(47, 261);
             this.kitapIdTextBox.Name = "kitapIdTextBox";
             this.kitapIdTextBox.Size = new System.Drawing.Size(100, 22);
             this.kitapIdTextBox.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // kitapIsimTextBox
             // 
-            this.kitapIsimTextBox.Location = new System.Drawing.Point(47, 118);
+            this.kitapIsimTextBox.Location = new System.Drawing.Point(47, 298);
             this.kitapIsimTextBox.Name = "kitapIsimTextBox";
             this.kitapIsimTextBox.Size = new System.Drawing.Size(100, 22);
             this.kitapIsimTextBox.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             // YazarBox
             // 
-            this.YazarBox.Location = new System.Drawing.Point(47, 164);
+            this.YazarBox.Location = new System.Drawing.Point(47, 336);
             this.YazarBox.Name = "YazarBox";
             this.YazarBox.Size = new System.Drawing.Size(100, 22);
             this.YazarBox.TabIndex = 2;
@@ -62,22 +62,24 @@
             // 
             // KaydetButton
             // 
-            this.KaydetButton.Location = new System.Drawing.Point(72, 241);
+            this.KaydetButton.BackColor = System.Drawing.Color.YellowGreen;
+            this.KaydetButton.Location = new System.Drawing.Point(348, 261);
             this.KaydetButton.Name = "KaydetButton";
-            this.KaydetButton.Size = new System.Drawing.Size(75, 23);
+            this.KaydetButton.Size = new System.Drawing.Size(80, 32);
             this.KaydetButton.TabIndex = 3;
-            this.KaydetButton.Text = "Kaydet";
-            this.KaydetButton.UseVisualStyleBackColor = true;
+            this.KaydetButton.Text = "KAYDET";
+            this.KaydetButton.UseVisualStyleBackColor = false;
             this.KaydetButton.Click += new System.EventHandler(this.KaydetButton_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(299, 137);
+            this.dataGridView1.Location = new System.Drawing.Point(47, 42);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(381, 192);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -85,6 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.KaydetButton);

@@ -39,65 +39,72 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(97, 315);
+            this.button1.BackColor = System.Drawing.Color.YellowGreen;
+            this.button1.Location = new System.Drawing.Point(415, 303);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 41);
+            this.button1.Size = new System.Drawing.Size(89, 28);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "KAYDET";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // kitapIsimTextBox
             // 
-            this.kitapIsimTextBox.Location = new System.Drawing.Point(84, 51);
+            this.kitapIsimTextBox.Location = new System.Drawing.Point(33, 309);
             this.kitapIsimTextBox.Name = "kitapIsimTextBox";
-            this.kitapIsimTextBox.Size = new System.Drawing.Size(100, 22);
+            this.kitapIsimTextBox.Size = new System.Drawing.Size(216, 22);
             this.kitapIsimTextBox.TabIndex = 1;
+            this.kitapIsimTextBox.Text = "KİTAP İSMİ";
             this.kitapIsimTextBox.TextChanged += new System.EventHandler(this.kitapIsimTextBox_TextChanged);
             // 
             // yazarTextBox
             // 
-            this.yazarTextBox.Location = new System.Drawing.Point(84, 99);
+            this.yazarTextBox.Location = new System.Drawing.Point(33, 270);
             this.yazarTextBox.Name = "yazarTextBox";
-            this.yazarTextBox.Size = new System.Drawing.Size(100, 22);
+            this.yazarTextBox.Size = new System.Drawing.Size(216, 22);
             this.yazarTextBox.TabIndex = 2;
+            this.yazarTextBox.Text = "YAZAR İSMİ";
             this.yazarTextBox.TextChanged += new System.EventHandler(this.yazarTextBox_TextChanged);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(246, 34);
+            this.dataGridView1.Location = new System.Drawing.Point(33, 36);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(380, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(471, 209);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // SilButton
             // 
-            this.SilButton.Location = new System.Drawing.Point(523, 261);
+            this.SilButton.BackColor = System.Drawing.Color.Red;
+            this.SilButton.Location = new System.Drawing.Point(415, 266);
             this.SilButton.Name = "SilButton";
-            this.SilButton.Size = new System.Drawing.Size(75, 23);
+            this.SilButton.Size = new System.Drawing.Size(89, 31);
             this.SilButton.TabIndex = 4;
-            this.SilButton.Text = "Sil";
-            this.SilButton.UseVisualStyleBackColor = true;
+            this.SilButton.Text = "SİL";
+            this.SilButton.UseVisualStyleBackColor = false;
             this.SilButton.Click += new System.EventHandler(this.SilButton_Click);
             // 
             // DuzenleButton
             // 
-            this.DuzenleButton.Location = new System.Drawing.Point(363, 261);
+            this.DuzenleButton.BackColor = System.Drawing.Color.Yellow;
+            this.DuzenleButton.Location = new System.Drawing.Point(415, 337);
             this.DuzenleButton.Name = "DuzenleButton";
-            this.DuzenleButton.Size = new System.Drawing.Size(75, 23);
+            this.DuzenleButton.Size = new System.Drawing.Size(89, 33);
             this.DuzenleButton.TabIndex = 5;
-            this.DuzenleButton.Text = "düzenle";
-            this.DuzenleButton.UseVisualStyleBackColor = true;
+            this.DuzenleButton.Text = "DÜZENLE";
+            this.DuzenleButton.UseVisualStyleBackColor = false;
             this.DuzenleButton.Click += new System.EventHandler(this.DuzenleButton_Click);
             // 
             // KitapEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.DuzenleButton);
             this.Controls.Add(this.SilButton);
