@@ -25,7 +25,7 @@ namespace KütüphaneSistemi1
 
         private void button2_Click(object sender, EventArgs e)
          { 
-            UyelikIslemleri uyelikIslemleri = new UyelikIslemleri();
+            UyeEkle uyelikIslemleri = new UyeEkle();
             uyelikIslemleri.ShowDialog();
          }
 
@@ -34,5 +34,10 @@ namespace KütüphaneSistemi1
             EmanetIslemleri EmanetIslemleri = new EmanetIslemleri();
             EmanetIslemleri.ShowDialog();
          }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
