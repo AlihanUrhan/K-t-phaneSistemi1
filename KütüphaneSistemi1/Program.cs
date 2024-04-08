@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KutuphaneSistemi1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,14 +10,21 @@ namespace KütüphaneSistemi1
     internal static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// Uygulamanın ana girdi noktası.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            // Veritabanı bağlantısını oluştur
+            baglantiver baglanti = new baglantiver();
+            baglanti.Baglan();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            // Uygulama kapandığında bağlantıyı kapat
+            baglanti.BaglantiyiKapat();
         }
     }
 }

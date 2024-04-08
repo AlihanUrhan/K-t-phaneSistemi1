@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
+using System.Data.SQLite;
 namespace KütüphaneSistemi1
 {
     public partial class KitapEkle : Form
@@ -34,11 +35,26 @@ namespace KütüphaneSistemi1
             // Yeni bir Kitap nesnesi oluştur
             Kitap yeniKitap = new Kitap(kitapIsim, yazar);
 
-            // Kitap listesine ekle
-            kitapListesi.Add(yeniKitap);
+            // SQLite veritabanına bağlan
+            using (SQLiteConnection baglanti = new SQLiteConnection("Data Source=C:\\Users\\aliha\\source\\repos\\KütüphaneSistemi1\\KütüphaneSistemi1\\f\\kutuphanesistemidatabase.db;Version=3;"))
+            {
+                baglanti.Open();
 
-            // JSON dosyasına kaydet
-            SaveKitapListesi();
+                // SQL komutunu oluştur
+                string sql = "INSERT INTO Kitap (KitapIsim, Yazar) VALUES (@kitapIsim, @yazar)";
+                using (SQLiteCommand komut = new SQLiteCommand(sql, baglanti))
+                {
+                    // Parametreleri ata
+                    komut.Parameters.AddWithValue("@kitapIsim", yeniKitap.KitapIsim);
+                    komut.Parameters.AddWithValue("@yazar", yeniKitap.Yazar);
+
+                    // Komutu çalıştır
+                    komut.ExecuteNonQuery();
+                }
+
+                // Bağlantıyı kapat
+                baglanti.Close();
+            }
 
             // Formu kapat
             this.Close();
@@ -78,13 +94,30 @@ namespace KütüphaneSistemi1
 
         internal void RefreshDataGridView()
         {
-            // DataGridView'i temizle
             dataGridView1.Rows.Clear();
 
-            // KitapListesi'nde bulunan her kitabı DataGridView'e ekle
-            foreach (var kitap in kitapListesi)
+            // SQLite veritabanına bağlan
+            using (SQLiteConnection connection = new SQLiteConnection("Data Source=C:\\Users\\aliha\\source\\repos\\KütüphaneSistemi1\\KütüphaneSistemi1\\f\\kutuphanesistemidatabase.db;Version=3;"))
             {
-                dataGridView1.Rows.Add(kitap.KitapId, kitap.KitapIsim, kitap.Yazar);
+                connection.Open();
+
+                // SQL sorgusunu oluştur
+                string query = "SELECT * FROM Kitap";
+
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        // Her bir satırı DataGridView'e ekle
+                        while (reader.Read())
+                        {
+                            dataGridView1.Rows.Add(reader["KitapId"], reader["KitapIsim"], reader["Yazar"]);
+                        }
+                    }
+                }
+
+                // Bağlantıyı kapat
+                connection.Close();
             }
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

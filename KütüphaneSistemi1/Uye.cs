@@ -14,7 +14,7 @@ namespace KütüphaneSistemi1
         public string Ad { get; set; }
         public string Soyad { get; set; }
 
-        public Uye(string ad, string soyad)
+        public Uye(string ad, string soyad, int uyeId)
         {
             UyeId = ++_sonUyeId;
             Ad = ad;

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
+using System.Data.SQLite;
 
 namespace KütüphaneSistemi1
 {
@@ -52,7 +53,46 @@ namespace KütüphaneSistemi1
                 dataGridView1.Columns.Add("UyeIdColumn", "Üye ID");
                 dataGridView1.Columns.Add("AdColumn", "Üye İsmi");
                 dataGridView1.Columns.Add("SoyadColumn", "Üye Soyad");
+
+                // SQLite veritabanından verileri yükle
+                LoadUyelerFromSQLite();
+
                 RefreshDataGridView(); // DataGridView'i güncelle
+            }
+        }
+
+        private void LoadUyelerFromSQLite()
+        {
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection("Data Source=C:\\Users\\aliha\\source\\repos\\KütüphaneSistemi1\\KütüphaneSistemi1\\f\\kutuphanesistemidatabase.db;Version=3;"))
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM Uye";
+
+                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                    {
+                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int uyeId = reader.GetInt32(reader.GetOrdinal("UyeId"));
+                                string ad = reader.GetString(reader.GetOrdinal("Ad"));
+                                string soyad = reader.GetString(reader.GetOrdinal("Soyad"));
+
+                                // Yüklenen verileri UyeListesi'ne ekle
+                                uyeListesi.Add(new Uye(ad, soyad, uyeId));
+                            }
+                        }
+                    }
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Veriler yüklenirken bir hata oluştu: " + ex.Message);
             }
         }
 
@@ -61,18 +101,41 @@ namespace KütüphaneSistemi1
             string ad = txtAd.Text;
             string soyad = txtSoyad.Text;
 
-            // Yeni bir Uye nesnesi oluştur
-            Uye yeniUye = new Uye(ad, soyad);
-
-            // Uye listesine ekle
-            uyeListesi.Add(yeniUye);
-
-            // JSON dosyasına kaydet
-            SaveUyeListesi();
+            // SQLite veritabanına kayıt ekle
+            KayitEkle(ad, soyad);
 
             // Formu kapat
             this.Close();
         }
+        private void KayitEkle(string ad, string soyad)
+        {
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection("Data Source=C:\\Users\\aliha\\source\\repos\\KütüphaneSistemi1\\KütüphaneSistemi1\\f\\kutuphanesistemidatabase.db;Version=3;"))
+                {
+                    connection.Open();
+
+                    string query = "INSERT INTO Uye (Ad, Soyad) VALUES (@ad, @soyad)";
+
+                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ad", ad);
+                        command.Parameters.AddWithValue("@soyad", soyad);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kayıt eklenirken bir hata oluştu: " + ex.Message);
+            }
+
+        }
+
+
         internal void RefreshDataGridView()
         {
             dataGridView1.Rows.Clear();
