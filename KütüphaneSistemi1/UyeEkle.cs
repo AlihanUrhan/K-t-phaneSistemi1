@@ -149,23 +149,48 @@ namespace KütüphaneSistemi1
 
         }
 
-        private void SilButton_Click(object sender, EventArgs e)
+        private void DeleteUyeFromSQLite(int uyeId)
+        {
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection("Data Source=C:\\Users\\aliha\\source\\repos\\KütüphaneSistemi1\\KütüphaneSistemi1\\f\\kutuphanesistemidatabase.db;Version=3;"))
+                {
+                    connection.Open();
+
+                    string query = "DELETE FROM Uye WHERE UyeId = @id";
+
+                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", uyeId);
+                        command.ExecuteNonQuery();
+                    }
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Üye silinirken bir hata oluştu: " + ex.Message);
+            }
+        }
+            private void SilButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 // Seçili satırın indeksini al
                 int rowIndex = dataGridView1.SelectedRows[0].Index;
 
-                // UyeListesi'nden seçili satıra karşılık gelen üyeyi kaldır
-                uyeListesi.RemoveAt(rowIndex);
+                // Seçili satıra karşılık gelen üye Id'sini al
+                int selectedUyeId = (int)dataGridView1.Rows[rowIndex].Cells["UyeIdColumn"].Value;
 
-                // DataGridView'i güncelle
+                // SQLite veritabanından seçili üyeyi kaldır
+                DeleteUyeFromSQLite(selectedUyeId);
+
+
                 RefreshDataGridView();
 
-                // JSON dosyasına kaydet
-                SaveUyeListesi();
             }
-            
+
         }
 
         private void DuzenleButton_Click(object sender, EventArgs e)

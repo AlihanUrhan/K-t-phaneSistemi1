@@ -79,6 +79,7 @@
             this.Controls.Add(this.uyeIdTextBox);
             this.Name = "UyeDuzenle";
             this.Text = "UyeDuzenle";
+            this.Load += new System.EventHandler(this.UyeDuzenle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

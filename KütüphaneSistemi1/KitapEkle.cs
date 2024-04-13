@@ -125,6 +125,32 @@ namespace KütüphaneSistemi1
 
         }
 
+        private void SilKitap(int kitapId)
+        {
+            try
+            {
+                using (SQLiteConnection connection = new SQLiteConnection("Data Source=C:\\Users\\aliha\\source\\repos\\KütüphaneSistemi1\\KütüphaneSistemi1\\f\\kutuphanesistemidatabase.db;Version=3;"))
+                {
+                    connection.Open();
+
+                    string query = "DELETE FROM Kitap WHERE KitapId = @kitapId";
+
+                    using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@kitapId", kitapId);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kitap silinirken bir hata oluştu: " + ex.Message);
+            }
+        }
+
         private void SilButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -132,14 +158,14 @@ namespace KütüphaneSistemi1
                 // Seçili satırın indeksini al
                 int rowIndex = dataGridView1.SelectedRows[0].Index;
 
-                // KitapListesi'nden seçili satıra karşılık gelen kitabı kaldır
-                kitapListesi.RemoveAt(rowIndex);
+                // Seçili satıra karşılık gelen kitabın ID'sini al
+                int kitapId = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["KitapIdColumn"].Value);
+
+                // Kitap tablosundan seçili kitabı sil
+                SilKitap(kitapId);
 
                 // DataGridView'i güncelle
                 RefreshDataGridView();
-
-                // JSON dosyasına kaydet
-                SaveKitapListesi();
             }
             else
             {
